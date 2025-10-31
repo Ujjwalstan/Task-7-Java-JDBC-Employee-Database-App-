@@ -1,0 +1,34 @@
+JDBC Interview Q&A - Student-style answers
+
+1. What is JDBC?
+JDBC (Java Database Connectivity) is an API in Java to connect and interact with databases using SQL.
+
+2. What is PreparedStatement?
+PreparedStatement is a JDBC interface that allows parameterized SQL queries and helps prevent SQL injection. It can be reused with different parameters.
+
+3. Difference between Statement and PreparedStatement?
+- Statement: used for simple, static SQL. Prone to SQL injection.
+- PreparedStatement: precompiled SQL with parameters, safer and often faster for repeated queries.
+
+4. How do you handle SQL exceptions?
+Use try-catch blocks to catch SQLException and handle or log the error. Always close resources in finally or use try-with-resources.
+
+5. How to prevent SQL Injection?
+Use PreparedStatement with parameter placeholders (?) and avoid building SQL by concatenating user input.
+
+6. What is JDBC DriverManager?
+DriverManager is a class that manages JDBC drivers and provides the getConnection(...) method to obtain DB connections.
+
+7. How to close connections?
+Use try-with-resources or call close() on ResultSet, Statement, and Connection in finally block to ensure they are closed.
+
+8. What is a ResultSet?
+ResultSet is an object returned by executing a SELECT query; it allows iterating over rows and reading column values.
+
+9. What is auto-commit in JDBC?
+Auto-commit means each SQL statement is automatically committed. You can disable it with setAutoCommit(false) to manage transactions manually.
+
+10. How to connect Java to MySQL?
+- Add MySQL JDBC driver to classpath.
+- Use DriverManager.getConnection("jdbc:mysql://host:port/database", "user", "pass");
+- Use Statement/PreparedStatement to run queries.
